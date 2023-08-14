@@ -7,6 +7,7 @@ endif
 
 if(-d $1)then
 	find $1 -path '*/.*' -prune -o -name "$2" -print
+	find $1 -name "$2" 2>/dev/null
 else
 	echo "$1 is not a directory"
 endif
