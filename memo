@@ -1,0 +1,97 @@
+tail -f 监控
+
+ps -aux
+
+$1 $2 输入参数
+
+拼接 set y = "${x} World!”
+
+`\` 句后换行
+
+**$%x**  表示变量的值的长度
+
+$! 进程PID号
+
+- **`if ($var)`**: 检查变量是否已设置并不为空。
+- **`if ($?var)`**: 检查变量是否已设置。
+- **`if (! $var)`**: 检查变量是否未设置或为空。
+
+set x = `date +%y%m%d_%H%M%S`
+
+（1）== //字符串相等测试
+
+（2）!= //字符串不相等测试
+
+（3）=~ //字符串与模式比较，测试是否相同，模式可以是正则表达式
+
+（4）!~ //字符串与模式比较，测试是否不同，模式可以是正则表达式
+
+if ($file !~ *.[zZ])               如果文件不是以.z或.Z为结尾⋯⋯
+
+if ($argv[1] =~ chap?)      如果第一个参数是chap 后跟着一个单字符⋯⋯
+
+-e //文件是否存在
+
+-f //是否是文件
+
+-d //是否是目录
+
+-z 文件长度为0返回1, 否则返回0.
+
+-rwx
+
+switch（$x）
+
+case 1：command breaksw
+
+case 2：command breaksw
+
+endsw
+
+while（expression）
+
+command
+
+end
+
+> [filename] 文件输出
+
+>& [filename] 文件输出和错误
+
+>> [filename] 文件追加输出
+
+**>& /dev/null 组织错误输出到终端**
+
+标准的读取用户输入的方式为: set input = $<
+
+PATH是环境变量所有shell都能看到的统一值,而path是当前shell中设置的局部变量。
+setenv PATH newpath1:newpath2:$PATH
+set path ( newpath1 newpath2 $path )
+set path = ($path /home)
+
+exit ( status )
+
+exit 1 中断
+
+检查Unix命令执行成功的方法是判断status变量是否等于0.
+
+set x = "/home/b0.doc/test/hello.csh"
+
+  echo $x:r
+  #/home/b0.doc/test/hello
+echo $x:e
+  #csh
+echo $x:h
+#/home/b0.doc/test
+echo $x:t
+  #hello.csh
+
+:t (tail)只保留路径名最右边的部分, 而将前面的全部去掉. (相当于basename)
+
+:r (root)去掉从"."(dot)开始的后缀部分.
+
+:e (end)去掉从左边开始一直的"."的前缀部分.
+
+:h (head)去掉最后的一部分, 只保留文件所在的目录名.
+
+使用别名(alias)来创建自定义的错误诊断信息。例如，alias Usage 'echo "    Usage:$0 require fileName. \!*; exit 2"' 在调用Usage时，可以使用字符串参数，将被!*替换。例如:Usage "Please input file name.".输出信息为："    Usage:checkfile require fileName. Please input file name.".在参数中也可以使用变量
