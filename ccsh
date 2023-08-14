@@ -1,0 +1,15 @@
+#!/bin/csh
+
+if ( $#argv != 1 ) then
+  echo "Usage: $0 <filename>"
+  exit 1
+endif
+
+set csh_name = $1".csh"
+
+if($csh_name !~ *.csh)then
+	touch $csh_name
+	chmod a+x $csh_name
+else
+	echo "$csh_name is not a directory"
+endif
