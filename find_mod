@@ -1,0 +1,12 @@
+#!/bin/csh
+
+if ( $#argv != 2 ) then
+  echo "Usage: $0 <directory> <filename>"
+  exit 1
+endif
+
+if(-d $1)then
+	find $1 -path '*/.*' -prune -o -name "$2" -print
+else
+	echo "$1 is not a directory"
+endif
