@@ -1,7 +1,7 @@
 tail -f 监控
-
+grep -irn
 ps -aux
-
+printenv
 $1 $2 输入参数
 
 拼接 set y = "${x} World!”
@@ -55,12 +55,12 @@ command
 end
 
 > [filename] 文件输出
-
 >& [filename] 文件输出和错误
-
 >> [filename] 文件追加输出
+2> [filename] 错误输出
+>& /dev/null 阻止所有输出到终端
+2> /dev/null 阻止错误输出到终端
 
-**>& /dev/null 组织错误输出到终端**
 
 标准的读取用户输入的方式为: set input = $<
 
